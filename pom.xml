@@ -20,6 +20,8 @@
         <module>cloud-provider-payment8002</module>
         <module>cloud-provider-payment8004</module>
         <module>cloud-zk-consumer-order82</module>
+        <module>cloud-provider-payment8006</module>
+        <module>cloud-consumer-consul-order83</module>
     </modules>
 
 

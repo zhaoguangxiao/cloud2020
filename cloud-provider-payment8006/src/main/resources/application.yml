@@ -1,0 +1,20 @@
+server:
+  port: 8006
+
+
+spring:
+  application:
+    name: cloud-consul-provider-payment
+
+
+#consul 配置
+  cloud:
+    consul:
+      host: 192.168.247.111
+      discovery:
+        port: 8500
+        service-name: ${spring.application.name}
+        health-check-path: /actuator/health
+        instance-id: ${spring.application.name}:${spring.cloud.consul.discovery.port}:${random.value}
+        heartbeat:
+          enabled: true

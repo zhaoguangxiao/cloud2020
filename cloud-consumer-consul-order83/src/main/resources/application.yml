@@ -1,0 +1,17 @@
+server:
+  port: 83
+
+
+spring:
+  application:
+    name: cloud-consumer-consul-order
+
+  #consul 配置
+  cloud:
+    consul:
+      host: 192.168.247.111
+      discovery:
+        port: 8500
+        service-name: ${spring.application.name}
+        health-check-url: /actuator/health
+        instance-id: ${spring.application.name}:${spring.cloud.consul.discovery.port}:${random.value}
