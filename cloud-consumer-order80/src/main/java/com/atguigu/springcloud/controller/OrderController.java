@@ -3,11 +3,7 @@ package com.atguigu.springcloud.controller;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
 import com.atguigu.springcloud.lb.LoadBalancer;
-import com.atguigu.springcloud.lb.impl.LoadBalancerImpl;
-import com.netflix.appinfo.InstanceInfo;
-import com.netflix.discovery.converters.Auto;
 import lombok.extern.slf4j.Slf4j;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -17,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.Resource;
 import java.net.URI;
 import java.util.List;
 

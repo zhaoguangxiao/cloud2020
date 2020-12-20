@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 @Slf4j
@@ -65,6 +66,18 @@ public class PayController {
 
     @GetMapping(value = "/payment/lb")
     public String getPaymentService() {
+        return port;
+    }
+
+
+
+    @GetMapping(value = "/payment/timeout")
+    public String timeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return port;
     }
 

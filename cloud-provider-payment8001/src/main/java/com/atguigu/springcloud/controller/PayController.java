@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 @Slf4j
@@ -30,7 +31,7 @@ public class PayController {
     private String port;
 
 
-    @PostMapping(value = "payment/create")
+    @PostMapping(value = "/payment/create")
     public CommonResult<Payment> insert(@RequestBody Payment payment) {
         int result = paymentService.add(payment);
         log.info("插入结果为------" + result);
@@ -40,7 +41,7 @@ public class PayController {
     }
 
 
-    @GetMapping(value = "payment/get/{id}")
+    @GetMapping(value = "/payment/get/{id}")
     public CommonResult<Payment> getPayment(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
         log.info("查询结果为------" + payment);
@@ -50,7 +51,7 @@ public class PayController {
     }
 
 
-    @GetMapping(value = "payment/discovery")
+    @GetMapping(value = "/payment/discovery")
     public Object getDiscoveryClient() {
         List<String> services = discoveryClient.getServices();
         services.forEach(System.out::println);
@@ -67,6 +68,17 @@ public class PayController {
 
     @GetMapping(value = "/payment/lb")
     public String getPaymentService() {
+        return port;
+    }
+
+
+    @GetMapping(value = "/payment/timeout")
+    public String timeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return port;
     }
 }
