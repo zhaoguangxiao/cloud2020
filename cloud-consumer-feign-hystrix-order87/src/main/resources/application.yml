@@ -1,0 +1,16 @@
+server:
+  port: 87
+
+spring:
+  application:
+    name: cloud-consumer-feign-hystrix-order
+
+#eureka client 配置
+
+eureka:
+  client:
+    register-with-eureka: true  #表示是否将自己注册进 eureka server 默认为true
+    fetch-registry: true     #是否从 eureka server 抓取自己已有的注册信息默认为true,单节点无所谓,集群必须设置为true,才能配合 ribbon 使用负载均衡
+    service-url:
+      #defaultZone: http://localhost:7001/eureka    #物业中心地址
+      defaultZone: http://eureka7002.com:7002/eureka,http://eureka7001.com:7001/eureka
