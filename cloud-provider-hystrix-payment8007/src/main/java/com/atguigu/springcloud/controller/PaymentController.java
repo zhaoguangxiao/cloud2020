@@ -28,4 +28,10 @@ public class PaymentController {
         log.info("******" + timeOutError);
         return timeOutError;
     }
+
+    //熔断-----
+    @GetMapping(value = "/provider/hystrix/fusing/{id}")
+    public String fusingMethod(@PathVariable("id") Long id) {
+        return paymentService.fusingMethod(id);
+    }
 }
