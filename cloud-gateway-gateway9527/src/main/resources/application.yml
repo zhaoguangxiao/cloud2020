@@ -7,17 +7,33 @@ spring:
     #gateway 配置
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true #开启从注册中心动态创建路由的功能,利用微服务进行路由
       routes:
         - id: payment_route # 路由的id,没有规定规则但要求唯一,建议配合服务名
           #匹配后提供服务的路由地址
-          uri: http://localhost:8001
+          #uri: http://localhost:8001
+          uri: lb://CLOUD-PROVIDER-SERVICE
           predicates:
             - Path=/payment/get/** # 断言，路径相匹配的进行路由
 
         - id: payment_route2
-          uri: http://localhost:8001
+          #uri: http://localhost:8001
+          uri: lb://CLOUD-PROVIDER-SERVICE
+          filters:
+            - AddRequestHeader=username, zgx
           predicates:
             - Path=/payment/lb/** #断言,路径相匹配的进行路由
+            - After=2020-12-23T13:43:07.312+08:00[Asia/Shanghai]
+            #- Before=2020-12-23T13:53:04.156+08:00[Asia/Shanghai]
+            #- Between=2020-12-23T13:53:04.156+08:00[Asia/Shanghai], 2020-12-23T13:55:04.156+08:00[Asia/Shanghai]
+            #- Cookie=username, root
+            #- Header=X-Request-Id, 1234
+            #- Host=**.atguigu.com
+            #- Method=GET,POST
+            #- Query=username,\d+  #要有参数名为username 并且值还是整数才能路由
+
 
 
 #eureka client 配置
