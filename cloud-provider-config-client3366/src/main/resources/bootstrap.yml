@@ -1,20 +1,20 @@
 server:
-  port: 3355
+  port: 3366
+
 spring:
   application:
     name: cloud-provider-config-client
   cloud:
-    config:  #config客户端配置
+    config: #config客户端配置
       label: main  #分支名称
       name: config  #配置文件名称
       profile: test #读取后缀名称
       uri: http://localhost:3344 #配置中心地址
-  rabbitmq:  #配置15672是web管理界面端口,5672是mq访问端口
+  rabbitmq: #配置15672是web管理界面端口,5672是mq访问端口
     host: localhost
     port: 5672
     username: guest
     password: guest
-
 
 management: #暴露监控点
   endpoints:
@@ -35,7 +35,7 @@ eureka:
       #defaultZone: http://localhost:7001/eureka    #物业中心地址
       defaultZone: http://eureka7002.com:7002/eureka,http://eureka7001.com:7001/eureka
   instance:
-    instance-id: cloud-provider-config-client3355
+    instance-id: cloud-provider-config-client3366
     prefer-ip-address: true
     #eureka 客户端端向服务端发送心跳的时间间隔,单位为秒(默认30秒)
     lease-expiration-duration-in-seconds: 1

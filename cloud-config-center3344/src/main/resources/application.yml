@@ -15,9 +15,11 @@ spring:
             - springcloud-config  #github仓库名
           skip-ssl-validation: true
         default-label: main
-
-
-
+  rabbitmq:  #rabbitmq 配置
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 
 #eureka client 配置
@@ -35,3 +37,17 @@ eureka:
     lease-expiration-duration-in-seconds: 1
     #ureka 服务端在接收到最后一次心跳后等待时间上限,单位为秒(90秒),超时将剔除服务
     lease-renewal-interval-in-seconds: 2
+
+
+#rabbitmq 相关配置,暴露bus刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
+
+
+
+logging:
+  level:
+    org.springframework.cloud.bus: debug
