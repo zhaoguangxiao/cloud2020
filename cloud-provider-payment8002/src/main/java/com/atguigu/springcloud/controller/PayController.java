@@ -83,5 +83,8 @@ public class PayController {
         return port;
     }
 
-
+    @GetMapping(value = "/payment/zipkin")
+    public String zipkin() {
+        return "端口为: " + port + " ------------- > zipkin success";
+    }
 }

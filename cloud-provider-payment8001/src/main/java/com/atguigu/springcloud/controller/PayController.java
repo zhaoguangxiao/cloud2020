@@ -69,7 +69,7 @@ public class PayController {
 
     @GetMapping(value = "/payment/lb")
     public String getPaymentService(HttpServletRequest httpServletRequest) {
-        log.info(httpServletRequest.getHeader("username")+"---------"+port);
+        log.info(httpServletRequest.getHeader("username") + "---------" + port);
         return port;
     }
 
@@ -82,5 +82,11 @@ public class PayController {
             e.printStackTrace();
         }
         return port;
+    }
+
+
+    @GetMapping(value = "/payment/zipkin")
+    public String zipkin() {
+        return "端口为: " + port + " ------------- > zipkin success";
     }
 }
