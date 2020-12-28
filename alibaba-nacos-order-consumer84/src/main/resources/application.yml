@@ -1,0 +1,15 @@
+server:
+  port: 84
+spring:
+  application:
+    name: nacos-consumer-order
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.247.111:8848
+
+
+#消费者将要去访问那些服务(注册成功进 nacos的微服务提供者)
+server-url:
+  nacos-user-service: http://cloud-nacos-provider
