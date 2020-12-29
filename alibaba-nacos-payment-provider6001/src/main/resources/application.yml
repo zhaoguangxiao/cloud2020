@@ -7,7 +7,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.247.111:8848  #配置Nacos 的IP地址
+        #server-addr: 192.168.247.111:1111  #naginx +3台nacos+mysql 集群
+        server-addr: 192.168.247.111:8848  #配置Nacos 的IP地址 单机
 
 management:
   endpoint:
