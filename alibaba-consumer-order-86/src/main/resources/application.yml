@@ -1,0 +1,24 @@
+server:
+  port: 86
+spring:
+  application:
+    name: alibaba-consumer-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.247.111:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080  #[配置sentinel dashboard地址
+        port: 8719  #默认为8719 ,假如被占用会自动从8719开始依次+1扫描,直到未被占用的端口
+        clientIp: localhost
+
+
+#消费者将要去访问那些服务(注册成功进 nacos的微服务提供者)
+server-url:
+  nacos-user-service: http://alibaba-provider-payment
+
+#激活 sentinel 对feign 支持
+feign:
+  sentinel:
+    enabled: true
