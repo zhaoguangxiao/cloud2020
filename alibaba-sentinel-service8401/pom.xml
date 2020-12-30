@@ -13,6 +13,13 @@
 
     <dependencies>
 
+
+        <!--    把sentinel 持久化规则 放入nacos    -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
+
         <!--   引入alibaba Nacos     -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
