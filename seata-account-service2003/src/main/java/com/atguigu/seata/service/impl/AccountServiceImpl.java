@@ -25,11 +25,11 @@ public class AccountServiceImpl implements AccountService {
     public void decrAccount(Long userId, BigDecimal moeny) {
         log.info("----->AccountServiceImpl 正在扣减账户余额");
         //模拟超时异常,,全局事务回滚
-        try {
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(20000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         accountDao.decrAccount(userId, moeny);
         log.info("----->AccountServiceImpl 账户余额扣减完毕  ^_^");
     }
