@@ -1,8 +1,8 @@
 package com.atguigu.seata.controller;
 
-import com.atguigu.seata.domain.CommonResult;
 import com.atguigu.seata.domain.Order;
 import com.atguigu.seata.service.OrderService;
+import com.atguigu.springcloud.entities.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

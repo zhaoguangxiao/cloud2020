@@ -1,7 +1,9 @@
 package com.atguigu.seata.service;
 
+import com.atguigu.springcloud.entities.CommonResult;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
 
@@ -12,5 +14,7 @@ import java.math.BigDecimal;
 public interface AccountService {
 
     //减余额
-    //int decrAccount(@PathVariable("userId") Long userId, @PathVariable("used") BigDecimal used);
+    @PostMapping("/account/decr")
+    CommonResult<Object> decrAccount(@RequestParam("userId") Long userId, @RequestParam("moeny") BigDecimal moeny);
+
 }
