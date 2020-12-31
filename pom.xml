@@ -41,6 +41,7 @@
         <module>alibaba-provider-payment5001</module>
         <module>alibaba-provider-payment5002</module>
         <module>alibaba-consumer-order-86</module>
+        <module>seata-order-service2001</module>
     </modules>
 
 

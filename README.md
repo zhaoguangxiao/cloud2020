@@ -6,3 +6,8 @@
 
 
 ##其中仓库 springcloud-config 放的是这个项目的微服务配置文件config
+
+## 后面使用Alibaba 的Nacos 作为注册中心和配置中心
+## Sentinel 作为服务熔断,流控规则,热点,等
+
+
